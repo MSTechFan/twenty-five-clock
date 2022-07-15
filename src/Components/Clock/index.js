@@ -20,7 +20,7 @@ const Clock = () => {
 			</div>
 			<div className='screen-session'>
 				<div>Session</div>
-				<div>09:57</div>
+				<p><span id="seconds">00</span>:<span id="tens">00</span></p>
 			</div>
 			<div>
 				<MdPlayArrow />
