@@ -17,9 +17,29 @@
 	font-size: 1rem;
 }
 
+.arrow-buttons {
+	width: '1rem';
+	height: '1rem';
+}
+
 .break-label {
 	display: block;
 	font-size: 1rem;
+}
+
+.arrow-buttons {
+	width: 1rem;
+	height: 1rem;
+}
+
+.arrow-buttons:hover {
+	color: #515150;
+	cursor: pointer;
+}
+
+.arrow-buttons:active {
+	color: #bc4749;
+	transform: scale(1.2);
 }
 
 .screen-session {
@@ -32,6 +52,16 @@
 	height: 110px;
 	border: solid black 2px;
 	border-radius: 10px;
+}
+
+.action-buttons:hover {
+	color: #515150;
+	cursor: pointer;
+}
+
+.action-buttons:active {
+	color: #bc4749;
+	transform: scale(1.2);
 }
 
 .signature {
