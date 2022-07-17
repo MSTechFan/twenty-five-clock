@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 const Clock = () => {
 	// eslint-disable-next-line no-unused-vars
-	const [segs, setSegs] = useState('00')
+	const [secs, setSegs] = useState('00')
 	// eslint-disable-next-line no-unused-vars
 	const [mins, setMins] = useState('00')
 	return (
@@ -26,7 +26,7 @@ const Clock = () => {
 			<div className='screen-session'>
 				<div>Session</div>
 				<p>
-					<span id='minutes'>{mins}</span>:<span id='seconds'>{segs}</span>
+					<span id='minutes'>{mins}</span>:<span id='seconds'>{secs}</span>
 				</p>
 			</div>
 			<div>
