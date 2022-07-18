@@ -1,4 +1,4 @@
-let Interval
+/* let Interval
 
 buttonStart.onclick = function () {
 	clearInterval(Interval)
@@ -15,28 +15,30 @@ buttonReset.onclick = function () {
 	seconds = '00'
 	appendTens.innerHTML = tens
 	appendSeconds.innerHTML = seconds
-}
+} */
 
-function startTimer(seconds, minutes) {
+export function startTimer(seconds, minutes) {
+	seconds = +seconds
+	minutes = +minutes
 	seconds++
 
-	if (tens <= 9) {
-		appendTens.innerHTML = '0' + seconds
+	if (seconds <= 9) {
+		return '0' + seconds.toString()
 	}
 
-	if (tens > 9) {
-		appendTens.innerHTML = seconds
+	if (seconds > 9) {
+		return seconds
 	}
 
 	if (minutes > 99) {
 		console.log('seconds')
 		minutes++
-		appendSeconds.innerHTML = '0' + minutes
-		seconds = 0
-		appendTens.innerHTML = '0' + 0
+		minutes = '0' + minutes.toString()
+		seconds = '00'
+		return [seconds, minutes]
 	}
 
 	if (minutes > 9) {
-		appendSeconds.innerHTML = minutes
+		return minutes
 	}
 }
