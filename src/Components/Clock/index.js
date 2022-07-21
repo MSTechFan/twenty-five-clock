@@ -2,12 +2,19 @@ import './styles.css'
 import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai'
 import { MdPlayArrow, MdPause, MdReplay } from 'react-icons/md'
 import { useState } from 'react'
+import {startTimer} from '.../startTimer.js'
 
 const Clock = () => {
-	// eslint-disable-next-line no-unused-vars
-	const [secs, setSegs] = useState('00')
-	// eslint-disable-next-line no-unused-vars
-	const [mins, setMins] = useState('00')
+	const [time, setTime] = useState({seconds: '00', minutes: '00'})
+	const Interval = setInterval(startTimer(time), 10)
+	
+	const handlePlayClick = () => {
+		setTime(time => ({
+			...time, 
+			...Interval
+		}))
+	}
+
 	return (
 		<div className='clock-container'>
 			<div className='main-tittle'>25 + 5 Clock</div>
@@ -26,11 +33,11 @@ const Clock = () => {
 			<div className='screen-session'>
 				<div>Session</div>
 				<p>
-					<span id='minutes'>{mins}</span>:<span id='seconds'>{secs}</span>
+					<span id='minutes'>{time.minutes}</span>:<span id='seconds'>{time.seconds}</span>
 				</p>
 			</div>
 			<div>
-				<MdPlayArrow className='action-buttons' />
+				<MdPlayArrow className='action-buttons' onClick={handlePlayClick} />
 				<MdPause className='action-buttons' />
 				<MdReplay className='action-buttons' />
 			</div>

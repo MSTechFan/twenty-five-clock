@@ -17,28 +17,27 @@ buttonReset.onclick = function () {
 	appendSeconds.innerHTML = seconds
 } */
 
-export function startTimer(seconds, minutes) {
-	seconds = +seconds
-	minutes = +minutes
+export function startTimer(time) {
+	let seconds = +time.seconds
+	let minutes = +time.minutes
 	seconds++
 
 	if (seconds <= 9) {
-		return '0' + seconds.toString()
+		return {seconds: '0' + seconds.toString(), minutes}
 	}
 
 	if (seconds > 9) {
-		return seconds
+		return {seconds, minutes}
 	}
 
-	if (minutes > 99) {
-		console.log('seconds')
+	if (seconds > 99) {
 		minutes++
 		minutes = '0' + minutes.toString()
 		seconds = '00'
-		return [seconds, minutes]
+		return {seconds, minutes}
 	}
 
 	if (minutes > 9) {
-		return minutes
+		return {seconds, minutes}
 	}
 }
