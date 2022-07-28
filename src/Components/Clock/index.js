@@ -2,17 +2,19 @@ import './styles.css'
 import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai'
 import { MdPlayArrow, MdPause, MdReplay } from 'react-icons/md'
 import { useState } from 'react'
-import {startTimer} from '.../startTimer.js'
+import {startTimer} from '../../startTimer'
 
 const Clock = () => {
 	const [time, setTime] = useState({seconds: '00', minutes: '00'})
-	const Interval = setInterval(startTimer(time), 10)
+
+	// el estado tiene que desmontarse y montarse nuevamente en una función automatica hecha con el setInterval()
 	
 	const handlePlayClick = () => {
-		setTime(time => ({
-			...time, 
-			...Interval
-		}))
+		setInterval(() => {
+			setTime({
+				...startTimer(time)
+			})
+		}, 100)
 	}
 
 	return (
