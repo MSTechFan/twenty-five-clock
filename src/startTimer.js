@@ -18,21 +18,22 @@ buttonReset.onclick = function () {
 } */
 
 export function startTimer(time) {
+	console.log(time)
 	let seconds = +time.seconds
 	let minutes = +time.minutes
 	seconds++
 
 	if (seconds <= 9) {
-		return {seconds: '0' + seconds.toString(), minutes}
+		return {seconds: '0' + seconds, minutes: '0' + minutes}
 	}
 
 	if (seconds > 9) {
-		return {seconds, minutes}
+		return {seconds, minutes: '0' + minutes}
 	}
 
-	if (seconds > 99) {
+	if (seconds >= 60) {
 		minutes++
-		minutes = '0' + minutes.toString()
+		minutes = '0' + minutes
 		seconds = '00'
 		return {seconds, minutes}
 	}

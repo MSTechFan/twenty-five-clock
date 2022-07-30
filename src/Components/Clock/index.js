@@ -6,15 +6,20 @@ import {startTimer} from '../../startTimer'
 
 const Clock = () => {
 	const [time, setTime] = useState({seconds: '00', minutes: '00'})
-
-	// el estado tiene que desmontarse y montarse nuevamente en una función automatica hecha con el setInterval()
+	let Interval
 	
 	const handlePlayClick = () => {
-		setInterval(() => {
-			setTime({
+		clearInterval(Interval)
+		Interval = setInterval(() => {
+			setTime(time => ({
+				...time, 
 				...startTimer(time)
-			})
-		}, 100)
+			}))
+		}, 1000)
+	}
+
+	const handlePauseClick = () => {
+		clearInterval(Interval)
 	}
 
 	return (
@@ -40,7 +45,7 @@ const Clock = () => {
 			</div>
 			<div>
 				<MdPlayArrow className='action-buttons' onClick={handlePlayClick} />
-				<MdPause className='action-buttons' />
+				<MdPause className='action-buttons' onClick={handlePauseClick}/>
 				<MdReplay className='action-buttons' />
 			</div>
 			<div className='signature'>Directed by: Mario Suarez</div>
