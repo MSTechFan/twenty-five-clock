@@ -6,20 +6,31 @@ import {startTimer} from '../../startTimer'
 
 const Clock = () => {
 	const [time, setTime] = useState({seconds: '00', minutes: '00'})
-	let Interval
+	const [intervalId, setIntervalId] = useState('')
+	const [play, setPlay] = useState(false)
 	
 	const handlePlayClick = () => {
-		clearInterval(Interval)
-		Interval = setInterval(() => {
-			setTime(time => ({
-				...time, 
-				...startTimer(time)
-			}))
-		}, 1000)
+		if(!play) {
+			setPlay(true)
+			const Interval = setInterval(() => {
+				setTime(time => ({
+					...time, 
+					...startTimer(time)
+				}))
+			}, 1000)
+			setIntervalId(Interval)
+		}
 	}
 
 	const handlePauseClick = () => {
-		clearInterval(Interval)
+		clearInterval(intervalId)
+		setPlay(false)
+	}
+
+	const handleResetClick = () => {
+		clearInterval(intervalId)
+		setTime({seconds: '00', minutes: '00'})
+		setPlay(false)
 	}
 
 	return (
@@ -46,7 +57,7 @@ const Clock = () => {
 			<div>
 				<MdPlayArrow className='action-buttons' onClick={handlePlayClick} />
 				<MdPause className='action-buttons' onClick={handlePauseClick}/>
-				<MdReplay className='action-buttons' />
+				<MdReplay className='action-buttons' onClick={handleResetClick}/>
 			</div>
 			<div className='signature'>Directed by: Mario Suarez</div>
 		</div>

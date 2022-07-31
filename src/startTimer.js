@@ -18,7 +18,6 @@ buttonReset.onclick = function () {
 } */
 
 export function startTimer(time) {
-	console.log(time)
 	let seconds = +time.seconds
 	let minutes = +time.minutes
 	seconds++
