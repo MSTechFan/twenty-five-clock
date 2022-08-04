@@ -25,7 +25,12 @@
 	border-radius: 10px;
 }
 
-.clock-length.on-click {
+.clock-length.on-click-break {
+	border: black solid 2px;
+	border-radius: 10px;
+}
+
+.clock-length.on-click-lunch {
 	border: black solid 2px;
 	border-radius: 10px;
 }
