@@ -67,15 +67,15 @@ const Clock = () => {
 			<div className='main-tittle'>Lunch & Break Timer</div>
 			<div id='break-session' className={`clock-length ${session === 'break' ? 'on-click-break': null}`} onClick={() => dispatch({type: ACTIONS.SESSION, payload: {session: 'break'}})}>
 				<div className='break-label'> Break Length</div>
-				<AiOutlineArrowUp className='arrow-buttons' onClick={() => handleArrows(time, 'add')}/>
+				<AiOutlineArrowUp className='arrow-buttons' onClick={() => dispatch({type: ACTIONS.LENGTH, payload: {value: 'add'}})}/>
 				{breakLength}
-				<AiOutlineArrowDown className='arrow-buttons' onClick={() => handleArrows(time, 'substract')}/>
+				<AiOutlineArrowDown className='arrow-buttons' onClick={() => dispatch({type: ACTIONS.LENGTH, payload: {value: 'substract'}})}/>
 			</div>
 			<div id='lunch-session' className={`clock-length ${session === 'lunch' ? 'on-click-lunch': null}`} onClick={handleClickSession}>
 				<div className='break-label'> Lunch Length</div>
-				<AiOutlineArrowUp className='arrow-buttons' onClick={() => handleArrows(time, 'add')}/>
+				<AiOutlineArrowUp className='arrow-buttons' onClick={() => dispatch({type: ACTIONS.LENGTH, payload: {value: 'add'}})}/>
 				{lunchLength}
-				<AiOutlineArrowDown className='arrow-buttons' onClick={() => handleArrows(time, 'substract')}/>
+				<AiOutlineArrowDown className='arrow-buttons' onClick={() => dispatch({type: ACTIONS.LENGTH, payload: {value: 'substract'}})}/>
 			</div>
 			<div className='screen-session'>
 				<div>{`${session}`}</div>
