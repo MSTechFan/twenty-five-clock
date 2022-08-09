@@ -17,38 +17,34 @@
 	font-size: 1rem;
 	margin: 0px 8px;
 	padding: 5px;
-	border: transparent solid 1px;
+	border: transparent solid 2px;
+	transition: 0.5s;
 }
 
 .clock-length:hover {
-	border: black solid 1px;
-	border-radius: 10px;
-}
-
-.clock-length.on-click-break {
 	border: black solid 2px;
 	border-radius: 10px;
+	opacity: 5;
 }
 
-.clock-length.on-click-lunch {
+.break-active {
 	border: black solid 2px;
 	border-radius: 10px;
+	opacity: 1;
 }
 
-.arrow-buttons {
-	width: '1rem';
-	height: '1rem';
+.lunch-active {
+	border: black solid 2px;
+	border-radius: 10px;
+	opacity: 1;
 }
 
-.break-label {
-	display: block;
-	font-size: 1rem;
-}
 
 .arrow-buttons {
 	width: 1rem;
 	height: 1rem;
 }
+
 
 .arrow-buttons:hover {
 	color: #515150;

@@ -18,26 +18,39 @@ buttonReset.onclick = function () {
 } */
 
 export function startTimer(time) {
-	let seconds = +time.seconds
-	let minutes = +time.minutes
-	seconds++
 
-	if (seconds <= 9) {
-		return {seconds: '0' + seconds, minutes: '0' + minutes}
-	}
+	let seconds 
+	let minutes 
 
-	if (seconds > 9) {
-		return {seconds, minutes: '0' + minutes}
-	}
+	seconds = +time.seconds
+	minutes = +time.minutes
+	
 
-	if (seconds >= 60) {
-		minutes++
+	if(minutes === 0 && seconds === 0){
+		// se acabo el temporizador
 		minutes = '0' + minutes
-		seconds = '00'
-		return {seconds, minutes}
+		seconds = '0' + seconds
+		return {minutes, seconds}
 	}
 
-	if (minutes > 9) {
-		return {seconds, minutes}
+	if(seconds === 0){
+		minutes--
+		minutes += ''
+		seconds = 60
+		seconds += ''
+		return {minutes, seconds}
 	}
+
+	if(seconds <= 10){
+		seconds --
+		seconds = '0' + seconds
+		minutes += ''
+		return {minutes, seconds}
+	}
+
+	seconds--
+	seconds += ''
+	minutes += ''
+
+	return {minutes, seconds}
 }

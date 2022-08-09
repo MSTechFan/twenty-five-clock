@@ -4,8 +4,7 @@ export const ACTIONS  = {
     PLAY: "play",
     RESET: "reset",
     STOP: "stop",
-    LENGTH: "length",
-    SESSION: "session"
+    SESSION: "session",
   }
 
 let Interval  
@@ -20,7 +19,7 @@ switch(type) {
                     ...time, 
                     ...startTimer(time)
                 }))
-            })
+            }, 1000)
             return {
                 ...state,
                 interval : Interval,
@@ -43,12 +42,12 @@ switch(type) {
         }
     case ACTIONS.SESSION:
         switch(payload.session){
-            case "break":
+            case "Break":
                 return {
                     ...state, 
                     session: payload.session
                 }
-            case "lunch":
+            case "Lunch":
                 return {
                     ...state,
                     session: payload.session
@@ -56,14 +55,5 @@ switch(type) {
             default:
                 return state
         }
-    case ACTIONS.LENGTH:
-        function modifyLength (value){
-            if(value === 'add'){
-                let minut
-            }
-            if(value === 'substract'){
-
-            }
-        }
-}
+    }
 }
