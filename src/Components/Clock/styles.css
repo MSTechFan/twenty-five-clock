@@ -68,6 +68,11 @@
 	border-radius: 10px;
 }
 
+.timeover-active {
+	color: #bc4749;
+	transform: scale(1.2);
+}
+
 .action-buttons:hover {
 	color: #515150;
 	cursor: pointer;

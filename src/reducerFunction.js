@@ -5,11 +5,15 @@ export const ACTIONS  = {
     RESET: "reset",
     STOP: "stop",
     SESSION: "session",
+    LENGTH: "length"
   }
 
 let Interval  
+const RANGE = 15
+
 
 export function reducer (state, {type, payload}) { 
+ 
 // eslint-disable-next-line no-empty
 switch(type) {
     case ACTIONS.PLAY:
@@ -35,7 +39,7 @@ switch(type) {
         }
     case ACTIONS.RESET:
         clearInterval(state.interval)
-        payload.setter({seconds: '00', minutes: '00'})
+        payload.setter({minutes: state.length, seconds: '00'})
         return {
             ...state,
             play: false
@@ -54,6 +58,45 @@ switch(type) {
                 }
             default:
                 return state
+        }
+    case ACTIONS.LENGTH:
+        if(payload.operation === 'add'){
+            console.log(state)
+            const MINS = +(state.length) + RANGE
+            if(state.length >= 60){
+                return state
+            }
+            payload.setter(time =>({
+                ...time,
+                minutes: '' + MINS,
+                seconds: '00'
+            }))
+            return {
+                ...state,
+                length: MINS
+            }
+        }
+        if(payload.operation === 'substract'){
+            const MINS = +(state.length)  - RANGE
+            if(state.length === RANGE) {
+                payload.setter(time => ({
+                    ...time,
+                    minutes: '00'
+                }))
+                return {
+                    ...state,
+                    length: 0
+                }
+            }
+            payload.setter(time =>({
+                ...time,
+                minutes: '' + MINS,
+                seconds: '00'
+            }))
+            return {
+                ...state,
+                length: MINS
+            }
         }
     }
 }
