@@ -6,7 +6,7 @@ import { reducer, ACTIONS} from '../../reducerFunction'
 import Alarm from '../../assets/alarm.wav'
 
 const Clock = () => {
-	const [time, setTime] = useState({minutes: '02', seconds: '00'})
+	const [time, setTime] = useState({minutes: '00', seconds: '00'})
 	const [state, dispatch] = useReducer(reducer, {session: "Break", interval: null, length: 0, play : false})
 
 	useEffect(() => {

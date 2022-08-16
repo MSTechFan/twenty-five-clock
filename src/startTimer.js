@@ -17,13 +17,13 @@ export function startTimer(time) {
 		if(minutes <= 10){
 			minutes--
 			minutes = '0' + minutes
-			seconds = 11
+			seconds = 59
 			seconds += ''
 			return {minutes, seconds}
 		}
 		minutes--
 		minutes += ''
-		seconds = 11
+		seconds = 59
 		seconds += ''
 		return {minutes, seconds}
 	}
