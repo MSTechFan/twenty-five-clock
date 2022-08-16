@@ -82,6 +82,9 @@ switch(type) {
             }
         }
         if(payload.operation === 'substract'){
+            if(state.length === 0){
+                return state
+            }
             const MINS = +(state.length)  - RANGE
             if(state.length === RANGE) {
                 payload.setter(time => ({
