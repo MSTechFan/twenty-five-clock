@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/twenty-five-clock/static/css/main.e041f0bc.css",
+    "main.js": "/twenty-five-clock/static/js/main.1a2c8ca6.js",
+    "static/media/alarm.wav": "/twenty-five-clock/static/media/alarm.9c91a01e4cbaaaf936b1.wav",
+    "index.html": "/twenty-five-clock/index.html",
+    "main.e041f0bc.css.map": "/twenty-five-clock/static/css/main.e041f0bc.css.map",
+    "main.1a2c8ca6.js.map": "/twenty-five-clock/static/js/main.1a2c8ca6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e041f0bc.css",
+    "static/js/main.1a2c8ca6.js"
+  ]
+}
