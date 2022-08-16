@@ -8,7 +8,6 @@ export function startTimer(time) {
 	
 
 	if(minutes === 0 && seconds === 0){
-		// se acabo el temporizador
 		minutes = '0' + minutes
 		seconds = '0' + seconds
 		return {minutes, seconds}

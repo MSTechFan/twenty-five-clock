@@ -1,12 +1,20 @@
 import './styles.css'
 import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai'
 import { MdPlayArrow, MdPause, MdReplay } from 'react-icons/md'
-import { useReducer, useState } from 'react'
+import { useEffect, useReducer, useState } from 'react'
 import { reducer, ACTIONS} from '../../reducerFunction'
+import Alarm from '../../assets/alarm.wav'
 
 const Clock = () => {
-	const [time, setTime] = useState({minutes: '10', seconds: '00'})
-	const [state,dispatch] = useReducer(reducer, {session: "Break", interval: null, length: 0, play : false})
+	const [time, setTime] = useState({minutes: '02', seconds: '00'})
+	const [state, dispatch] = useReducer(reducer, {session: "Break", interval: null, length: 0, play : false})
+
+	useEffect(() => {
+		if(time.seconds === '00' && time.minutes === '00' && state.play === true){
+			const ID = document.getElementById('audio-alarm')
+			ID.play()
+		}
+	})
 
 	return (
 		<div className='clock-container'>
@@ -27,6 +35,7 @@ const Clock = () => {
 				<p className={time.minutes === '00' && state.play ? 'timeover-active':null}>
 					<span id='minutes'>{time.minutes}</span>:<span id='seconds'>{time.seconds}</span>
 				</p>
+				<audio id='audio-alarm' src={Alarm}></audio>	
 			</div>
 			<div>
 				<MdPlayArrow className='action-buttons' onClick={() => dispatch({type: ACTIONS.PLAY, payload: {setter: setTime}})} />

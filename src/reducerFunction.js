@@ -45,6 +45,9 @@ switch(type) {
             play: false
         }
     case ACTIONS.SESSION:
+        if(state.play){
+            return state
+        }
         switch(payload.session){
             case "Break":
                 return {
@@ -60,8 +63,10 @@ switch(type) {
                 return state
         }
     case ACTIONS.LENGTH:
+        if(state.play){
+            return state
+        }
         if(payload.operation === 'add'){
-            console.log(state)
             const MINS = +(state.length) + RANGE
             if(state.length >= 60){
                 return state
